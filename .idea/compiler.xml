@@ -26,5 +26,8 @@
         <module name="SensorFor281Project" />
       </profile>
     </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="SensorFor281Project" target="1.6" />
+    </bytecodeTargetLevel>
   </component>
 </project>

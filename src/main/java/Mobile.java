@@ -1,21 +1,20 @@
 /**
  * Created by WU on 17/11/2015.
  */
-import org.apache.http.HttpResponse;
+
+import com.fasterxml.jackson.databind.ObjectMapper;
 import org.apache.http.client.HttpClient;
-import org.apache.http.client.methods.HttpDelete;
-import org.apache.http.client.methods.HttpGet;
 import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.ContentType;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.HttpClientBuilder;
-import org.apache.http.util.EntityUtils;
 public class Mobile {
     private final String url;
     private HeartrateSensor heartrateSensor;
     private TempSensor tempSensor;
     private BloodPressureSensor bloodPressureSensor;
     private String name;
+
     static HttpClient httpClient = HttpClientBuilder.create().build();
     public Mobile(String url,
                   String name,
@@ -34,7 +33,7 @@ public class Mobile {
                 new HeartrateSensor(),
                 new TempSensor(),
                 new BloodPressureSensor());
-
+        mobile.uploadData();
     }
     private void uploadData() {
         DataPoint dataPoint = new DataPoint();
@@ -43,8 +42,12 @@ public class Mobile {
         dataPoint.setTemperature(tempSensor.getReading());
         dataPoint.setHeartrate(heartrateSensor.getReading());
         dataPoint.setTimeStamp(System.currentTimeMillis());
-        String json = new ObjectMapper().writeValueAsString(dataPoint);
-        post(url, json);
+        try {
+            String json = new ObjectMapper().writeValueAsString(dataPoint);
+            post(url, json);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 
