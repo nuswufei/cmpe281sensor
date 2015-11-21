@@ -8,6 +8,7 @@ import org.apache.http.client.methods.HttpPost;
 import org.apache.http.entity.ContentType;
 import org.apache.http.entity.StringEntity;
 import org.apache.http.impl.client.HttpClientBuilder;
+
 public class Mobile {
     private final String url;
     private HeartrateSensor heartrateSensor;
@@ -33,7 +34,8 @@ public class Mobile {
                 new HeartrateSensor(),
                 new TempSensor(),
                 new BloodPressureSensor());
-        mobile.uploadData();
+            mobile.uploadData();
+
     }
     private void uploadData() {
         DataPoint dataPoint = new DataPoint();

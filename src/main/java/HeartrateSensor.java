@@ -5,6 +5,6 @@ import java.util.Random;
  */
 public class HeartrateSensor {
     public int getReading() {
-        return 60 + (int) new Random().nextDouble() * 40;
+        return 60 + (int) new Random().nextDouble() * 60;
     }
 }

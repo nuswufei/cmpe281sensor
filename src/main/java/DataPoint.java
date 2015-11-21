@@ -3,7 +3,17 @@
  */
 public class DataPoint {
     String name;
-    long timeStamp;
+
+
+    public double getTimeStamp() {
+        return timeStamp;
+    }
+
+    public void setTimeStamp(double timeStamp) {
+        this.timeStamp = timeStamp;
+    }
+
+    double timeStamp;
     double temperature;
     double bloodpressure;
     int heartrate;
@@ -13,14 +23,6 @@ public class DataPoint {
 
     public void setName(String name) {
         this.name = name;
-    }
-
-    public long getTimeStamp() {
-        return timeStamp;
-    }
-
-    public void setTimeStamp(long timeStamp) {
-        this.timeStamp = timeStamp;
     }
 
     public double getTemperature() {

@@ -6,6 +6,6 @@ import java.util.Random;
 public class BloodPressureSensor {
     public double getReading(){
         Random random = new Random();
-        return 80d + random.nextDouble() * 30;
+        return 75d + random.nextDouble() * 40;
     }
 }

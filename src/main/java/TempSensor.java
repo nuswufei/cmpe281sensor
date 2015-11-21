@@ -5,6 +5,6 @@ import java.util.Random;
  */
 public class TempSensor {
     public double getReading() {
-        return 36 + new Random().nextDouble() * 4;
+        return 36 + new Random().nextDouble() * 3;
     }
 }
